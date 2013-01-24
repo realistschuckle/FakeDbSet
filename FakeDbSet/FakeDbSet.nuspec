@@ -4,12 +4,12 @@
     <id>$id$</id>
     <version>$version$</version>
     <title>$title$</title>
-    <authors>a-h</authors>
+    <authors>realistschuckle</authors>
     <owners>$author$</owners>
-    <projectUrl>https://github.com/a-h/FakeDbSet</projectUrl>
+    <projectUrl>https://github.com/realistschuckle/FakeDbSet</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>A ready to use FakeDbSet for faking Entity Framework code.</description>
-    <releaseNotes>A ready to use FakeDbSet for faking Entity Framework code.  First release.</releaseNotes>
+    <description>A ready to use FakeDbSet for faking Entity Framework code upgraded for EF 5 and .NET 4.5.</description>
+    <releaseNotes>A ready to use FakeDbSet for faking Entity Framework code upgraded for EF 5 and .NET 4.5</releaseNotes>
     <copyright></copyright>
     <tags>EF, InMemoryDbSet, Code First</tags>
     <dependencies>
