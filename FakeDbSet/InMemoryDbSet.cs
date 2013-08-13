@@ -15,11 +15,13 @@ namespace FakeDbSet
 	/// <typeparam name="T">The type of DbSet.</typeparam>
 	public class InMemoryDbSet<T> : IDbSet<T> where T : class
 	{
-		readonly static HashSet<T> _data = new HashSet<T>();
-		readonly IQueryable _query = _data.AsQueryable();
+		readonly HashSet<T> _data;
+		readonly IQueryable _query;
 
 		public InMemoryDbSet() : this(false)
 		{
+            _data = new HashSet<T>();
+		    _query = _data.AsQueryable();
 		}
 
         public InMemoryDbSet(bool clearDownExistingData)
