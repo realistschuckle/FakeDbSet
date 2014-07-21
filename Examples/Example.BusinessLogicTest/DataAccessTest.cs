@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using FakeDbSet;
 using NUnit.Framework;
 using Example.BusinessLogic;
 using Example.Data;
@@ -35,5 +35,57 @@ namespace Example.BusinessLogicTest
 			Assert.That(books.Count, Is.EqualTo(1));
 			Assert.That(books.First().Author.LastName, Is.EqualTo("Last Name 2"));
 		}
+
+        [Test]
+        public void Setup_fake_dbset_returns_expected()
+        {
+            // Arrange
+            var entities = new BookStoreEntities();
+            var book = new Book { Title = "title" };
+
+            // Act
+            entities.SetupFakeDbSet(x => x.Books).Add(book);
+
+            // Assert
+            Assert.That(entities.Books.Count(), Is.EqualTo(1));
+            Assert.That(entities.Books.First().Title, Is.EqualTo("title"));
+        }
+
+        [Test]
+        public void Setup_fake_dbset_with_add_range_returns_expected()
+        {
+            // Arrange
+            var entities = new BookStoreEntities();
+            var books = new []
+            {
+                new Book { Title = "title 1" },
+                new Book { Title = "title 2" }
+            };
+
+            // Act
+            entities.SetupFakeDbSet(x => x.Books).AddRange(books);
+
+            // Assert
+            Assert.That(entities.Books.Count(), Is.EqualTo(2));
+            Assert.That(entities.Books.First().Title, Is.EqualTo("title 1"));
+            Assert.That(entities.Books.Last().Title, Is.EqualTo("title 2"));
+        }
+
+        [Test]
+        public void Setup_fake_dbset_with_add_many_returns_expected()
+        {
+            // Arrange
+            var entities = new BookStoreEntities();
+            var book1 = new Book { Title = "title 1" };
+            var book2 = new Book { Title = "title 2" };
+
+            // Act
+            entities.SetupFakeDbSet(x => x.Books).Add(book1, book2);
+
+            // Assert
+            Assert.That(entities.Books.Count(), Is.EqualTo(2));
+            Assert.That(entities.Books.First().Title, Is.EqualTo("title 1"));
+            Assert.That(entities.Books.Last().Title, Is.EqualTo("title 2"));
+        }
 	}
 }
