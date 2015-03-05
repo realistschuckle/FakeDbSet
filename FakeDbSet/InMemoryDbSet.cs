@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
-using System.Text;
 using System.Data.Entity;
 using System.Linq.Expressions;
 using System.Collections;
@@ -13,7 +13,7 @@ namespace FakeDbSet
 	/// and modified to be based on DbSet instead of ObjectSet.
 	/// </summary>
 	/// <typeparam name="T">The type of DbSet.</typeparam>
-	public class InMemoryDbSet<T> : IDbSet<T> where T : class
+    public class InMemoryDbSet<T> : IDbAsyncEnumerable<T>, IDbSet<T> where T : class
 	{
 		readonly HashSet<T> _data;
 		readonly IQueryable _query;
@@ -93,11 +93,21 @@ namespace FakeDbSet
 		public Expression Expression
 		{
 			get { return _query.Expression; }
-		}
+		} 
+        
+        public IDbAsyncEnumerator<T> GetAsyncEnumerator()
+        {
+            return new DbAsyncEnumerator<T>(this.AsEnumerable().GetEnumerator());
+        }
 
-		public IQueryProvider Provider
-		{
-			get { return _query.Provider; }
-		}
+        IDbAsyncEnumerator IDbAsyncEnumerable.GetAsyncEnumerator()
+        {
+            return GetAsyncEnumerator();
+        }
+
+        IQueryProvider IQueryable.Provider
+        {
+            get { return new DbAsyncQueryProvider<T>(_data.AsQueryable().Provider); }
+        }
 	}
 }

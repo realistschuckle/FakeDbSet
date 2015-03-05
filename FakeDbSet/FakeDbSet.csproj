@@ -50,6 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbAsyncEnumerable.cs" />
+    <Compile Include="DbAsyncEnumerator.cs" />
+    <Compile Include="DbAsyncQueryProvider.cs" />
     <Compile Include="DbContextExtensions.cs" />
     <Compile Include="DbSetHelper.cs" />
     <Compile Include="IDbSetExtensions.cs" />
