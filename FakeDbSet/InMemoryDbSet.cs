@@ -61,7 +61,22 @@ namespace FakeDbSet
 
 		public virtual T Find(params object[] keyValues)
 		{
-			throw new NotImplementedException("Derive from InMemoryDbSet and override Find.");
+            if (keyValues.Length != 1)
+                throw new Exception("not implemented");
+
+            var type = typeof(T);
+            var prop = type.GetProperty(type.Name + "Id");
+            var getter = prop.GetGetMethod();
+
+            var keyType = keyValues[0].GetType();
+            if (getter.ReturnType != keyType)
+                throw new Exception("mismatch keytype");
+            if (getter.ReturnType == typeof(Int32))
+                return this.FirstOrDefault(t => (int)getter.Invoke(t, null) == (int)keyValues[0]);
+            else if (getter.ReturnType == typeof(Guid))
+                return this.FirstOrDefault(t => (Guid)getter.Invoke(t, null) == (Guid)keyValues[0]);
+            else
+                throw new Exception("unknown keytype");
 		}
 
 		public System.Collections.ObjectModel.ObservableCollection<T> Local
