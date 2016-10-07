@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>InMemoryDbSet</id>
+    <version>1.0.0</version>
+    <authors>Keiran McDonald</authors>
+    <owners>keza</owners>
+    <projectUrl>https://github.com/kezakez/FakeDbSet</projectUrl>
+    <iconUrl>https://github.com/kezakez/FakeDbSet/NuGetLogo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Used for unit testing EF queries</description>
+    <releaseNotes>Fork to provide DbSet as base class</releaseNotes>
+    <copyright>Copyright 2016</copyright>
+    <tags>EF DbSet InMemoryDbSet</tags>
+    <dependencies>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="FakeDbSet\bin\Debug\AnotherFakeDbSet.*" target="lib" />
+  </files>
+</package>
