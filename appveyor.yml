@@ -20,5 +20,5 @@ after_test:
 
 artifacts:
 - path: InMemoryDbSet\bin\Release\InMemoryDbSet.dll
-  name: AnotherFakeDbSet.dll
+  name: InMemoryDbSet.dll
 - path: 'InMemoryDbSet*.nupkg'
