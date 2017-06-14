@@ -1,0 +1,24 @@
+version: 2.0.{build}
+
+before_build:
+- cmd: nuget restore
+
+assembly_info:
+  patch: true
+  file: AssemblyInfo.*
+  assembly_version: "{version}"
+  assembly_file_version: "{version}"
+  assembly_informational_version: "{version}"
+
+configuration: Release
+
+build:
+  verbosity: minimal
+
+after_test:
+- ps: .\nuget\pack.ps1
+
+artifacts:
+- path: InMemoryDbSet\bin\Release\InMemoryDbSet.dll
+  name: AnotherFakeDbSet.dll
+- path: 'InMemoryDbSet*.nupkg'
