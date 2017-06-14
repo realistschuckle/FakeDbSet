@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>InMemoryDbSet</id>
+    <version>$version$</version>
+    <authors>Keiran McDonald (@keiranmcdonald)</authors>
+    <projectUrl>https://github.com/kezakez/InMemoryDbSet</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Used for unit testing EF queries based on </description>
+    <copyright>Copyright 2017</copyright>
+    <tags>EF IDbSet DbSet InMemoryDbSet</tags>
+    <dependencies>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\FakeDbSet\bin\Release\AnotherFakeDbSet.*" target="lib" />
+  </files>
+</package>
