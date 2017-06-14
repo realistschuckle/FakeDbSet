@@ -1,7 +1,9 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FakeDbSet", "FakeDbSet\FakeDbSet.csproj", "{D0A1A938-0E7F-49F9-8623-1A64FCC0B2C9}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InMemoryDbSet", "InMemoryDbSet\InMemoryDbSet.csproj", "{D0A1A938-0E7F-49F9-8623-1A64FCC0B2C9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{E1E7159A-94F9-4846-8C02-4E4172DFC6FE}"
 EndProject
