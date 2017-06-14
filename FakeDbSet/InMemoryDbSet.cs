@@ -110,6 +110,11 @@ namespace FakeDbSet
             return _data.GetEnumerator();
         }
 
+        IEnumerator<T> IEnumerable<T>.GetEnumerator()
+        {
+            return _data.GetEnumerator();
+        }
+
         public Type ElementType
         {
             get { return _query.ElementType; }
