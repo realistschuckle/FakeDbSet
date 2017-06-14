@@ -3,7 +3,7 @@ using System.Data.Entity.Infrastructure;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace FakeDbSet
+namespace InMemoryDbSet
 {
     internal class DbAsyncEnumerator<T> : IDbAsyncEnumerator<T>
     {

@@ -2,10 +2,10 @@
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
-using FakeDbSet;
 using NUnit.Framework;
 using Example.BusinessLogic;
 using Example.Data;
+using InMemoryDbSet;
 
 namespace Example.BusinessLogicTest
 {

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Example.Data;
-using FakeDbSet;
+﻿using Example.Data;
 using System.Data.Entity;
+using InMemoryDbSet;
 
 namespace Example.BusinessLogicTest
 {

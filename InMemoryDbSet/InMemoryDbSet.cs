@@ -1,12 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
-using System.Data.Entity;
 using System.Linq.Expressions;
-using System.Collections;
 
-namespace FakeDbSet
+namespace InMemoryDbSet
 {
     /// <summary>
     /// The in-memory database set, taken from Microsoft's online example (http://msdn.microsoft.com/en-us/ff714955.aspx) 

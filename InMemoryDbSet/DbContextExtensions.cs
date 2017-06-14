@@ -3,7 +3,7 @@ using System.Data.Entity;
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace FakeDbSet
+namespace InMemoryDbSet
 {
     public static class DbContextExtensions
     {
