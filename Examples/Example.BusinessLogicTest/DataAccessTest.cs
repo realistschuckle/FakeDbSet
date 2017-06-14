@@ -2,10 +2,10 @@
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
-using FakeDbSet;
 using NUnit.Framework;
 using Example.BusinessLogic;
 using Example.Data;
+using InMemoryDbSet;
 
 namespace Example.BusinessLogicTest
 {
@@ -64,7 +64,9 @@ namespace Example.BusinessLogicTest
             };
 
             // Act
-            entities.SetupFakeDbSet(x => x.Books).AddRange(books);
+            var dbSet = entities.SetupFakeDbSet(x => x.Books);
+            dbSet.Add(books[0]);
+            dbSet.Add(books[1]);
 
             // Assert
             Assert.That(entities.Books.Count(), Is.EqualTo(2));
@@ -81,7 +83,9 @@ namespace Example.BusinessLogicTest
             var book2 = new Book { Title = "title 2" };
 
             // Act
-            entities.SetupFakeDbSet(x => x.Books).Add(book1, book2);
+            var dbSet = entities.SetupFakeDbSet(x => x.Books);
+            dbSet.Add(book1);
+            dbSet.Add(book2);
 
             // Assert
             Assert.That(entities.Books.Count(), Is.EqualTo(2));
@@ -102,7 +106,9 @@ namespace Example.BusinessLogicTest
             };
 
             // Act
-            entities.SetupFakeDbSet(x => x.Books).AddRange(books);
+            var dbSet = entities.SetupFakeDbSet(x => x.Books);
+            dbSet.Add(books[0]);
+            dbSet.Add(books[1]);
 
             // Assert
             Assert.That(await entities.Books.CountAsync(), Is.EqualTo(2));
